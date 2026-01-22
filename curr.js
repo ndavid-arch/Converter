@@ -44,5 +44,27 @@ function converter() {
     });
 }
 
-// Call the converter function
-converter();
+// Menu function
+function showMenu() {
+    console.log("\n=== Currency Converter ===");
+    console.log("1. Start converting");
+    console.log("2. Exit");
+
+    rl.question("Select an option: ", (choice) => {
+        switch (choice) {
+            case '1':
+                converter();
+                break;
+            case '2':
+                console.log("Goodbye!");
+                rl.close();
+                break;
+            default:
+                console.log("Invalid choice. Try again.");
+                showMenu(); // Loop back if invalid
+        }
+    });
+}
+
+// Start the program
+showMenu();
